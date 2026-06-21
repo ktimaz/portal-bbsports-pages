@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bb体育 · 信息与服务说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #f4f6fa;
+            color: #1e2a3e;
+            line-height: 1.7;
+        }
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(135deg, #0b1628 0%, #1a2a44 100%);
+            color: #e6edf5;
+            padding: 72px 24px 60px;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+            margin-bottom: 40px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .hero h1 span {
+            color: #b6d0f0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 680px;
+            margin: 0 auto;
+            opacity: 0.85;
+            font-weight: 350;
+        }
+        .hero .tagline {
+            margin-top: 24px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin: 48px 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px 28px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            transition: transform 0.15s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+        }
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #0b1628;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h3::before {
+            content: "◆";
+            color: #3f6bb0;
+            font-size: 1.1rem;
+        }
+        .card p {
+            color: #2c3a50;
+            font-size: 0.98rem;
+            margin-bottom: 6px;
+        }
+
+        /* 可信说明段落 (深色分隔) */
+        .trust-section {
+            background: #eaeff7;
+            padding: 48px 32px;
+            border-radius: 28px;
+            margin: 32px 0 48px;
+        }
+        .trust-section h2 {
+            font-size: 1.7rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #0f1e36;
+        }
+        .trust-section p {
+            max-width: 800px;
+            margin-bottom: 18px;
+            font-size: 1.02rem;
+            color: #1d2b40;
+        }
+        .trust-section .highlight {
+            background: #ffffffb3;
+            padding: 2px 10px;
+            border-radius: 16px;
+            font-weight: 500;
+        }
+
+        /* 链接样式 — 强调色 */
+        a {
+            color: #1f5bb5;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s;
+        }
+        a:hover {
+            border-bottom: 1px solid #1f5bb5;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 32px;
+            margin: 40px 0 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        }
+        .faq-mini h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #0b1628;
+        }
+        .faq-mini details {
+            margin: 14px 0;
+            padding-left: 6px;
+        }
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #1a2a44;
+            padding: 4px 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .faq-mini summary::before {
+            content: "▸";
+            color: #3f6bb0;
+            font-weight: bold;
+        }
+        .faq-mini details[open] summary::before {
+            content: "▾";
+        }
+        .faq-mini .answer {
+            padding: 8px 0 4px 20px;
+            color: #2c3a50;
+            font-size: 0.95rem;
+            border-left: 2px solid #d6e0f0;
+            margin-top: 4px;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            padding: 32px 0 48px;
+            color: #4a5a72;
+            font-size: 0.9rem;
+            border-top: 1px solid #dde3ed;
+            margin-top: 48px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.1rem; }
+            .hero { padding: 48px 16px 40px; }
+            .card { padding: 24px 20px; }
+            .trust-section { padding: 32px 20px; }
+            .faq-mini { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- 深色头图 -->
+        <header class="hero">
+            <h1>关于 <span>bb体育</span> 的信息页</h1>
+            <p>站点介绍 · 用途说明 · 可信参考</p>
+            <div class="tagline">知识型 · 信息卡片式 · 客观说明</div>
+        </header>
+
+        <!-- 用途卡片 + 适合人群 -->
+        <div class="card-grid">
+            <div class="card">
+                <h3>站点用途</h3>
+                <p><strong>bb体育</strong> 是一个聚焦体育资讯与相关服务的平台，为用户提供赛事动态、数据参考及内容聚合。页面设计侧重信息呈现，帮助访问者快速了解体育领域的最新信息。</p>
+                <p style="margin-top: 12px;">平台内容涵盖多类体育项目，更新频率稳定，适合日常浏览参考。</p>
+            </div>
+            <div class="card">
+                <h3>适合人群</h3>
+                <p>对体育赛事保持兴趣的普通观众、希望获取赛事资料的爱好者、以及需要内容素材的体育类内容创作者。同时适合希望了解体育生态的轻度用户。</p>
+                <p style="margin-top: 12px;">无需专业背景，界面直观，信息分层清晰。</p>
+            </div>
+            <div class="card">
+                <h3>信息基调</h3>
+                <p>本站内容以信息整合与客观描述为主，不涉及博彩或诱导性承诺。所有链接及推荐均基于体育信息本身，符合网络信息规范。</p>
+                <p style="margin-top: 12px;">若需要了解具体服务，可直接浏览 <a href="https://portal-bbsports.com">bb体育</a> 页面。</p>
+            </div>
+        </div>
+
+        <!-- 站点介绍与可信说明 (自然链接段落) -->
+        <section class="trust-section">
+            <h2>站点介绍与可信说明</h2>
+            <p><strong>bb体育</strong> 的定位是一个体育信息入口，旨在通过聚合与整理，降低用户获取体育动态的门槛。平台本身不生产原始赛事数据，而是对公开来源进行筛选与呈现，因此信息可靠性取决于数据源质量。建议用户在参考具体内容时，结合多方渠道交叉确认。</p>
+            <p>从使用场景看，<a href="https://portal-bbsports.com">bb体育</a> 提供的界面与分类方式更适合快速浏览，而非深度研究。如果你需要即时比分或深度战术分析，可将此站点作为起点，再跳转至专业数据网站。值得注意的是，任何信息平台都无法保证 100% 实时或准确，保持合理的参考心态是理性使用的第一步。</p>
+            <p>关于可信度，bb体育 在页面中未展示明显的夸大宣传或虚假标识，内容风格偏中性。对于希望了解体育资讯框架的新用户，这是一个低门槛的尝试方向。</p>
+        </section>
+
+        <!-- FAQ 摘要 (自然承接) -->
+        <div class="faq-mini">
+            <h4>常见疑问摘要</h4>
+            <details>
+                <summary>bb体育 的信息更新频率如何？</summary>
+                <div class="answer">根据页面观察，内容会随赛事日程进行周期性更新，重大赛事期间信息密度更高。非赛季阶段更新节奏会相应放缓。</div>
+            </details>
+            <details>
+                <summary>是否需要注册才能使用？</summary>
+                <div class="answer">大部分信息浏览功能无需注册，可直接访问。部分个性化功能或订阅提醒可能需要账户支持，具体以实际页面提示为准。</div>
+            </details>
+            <details>
+                <summary>移动端适配情况如何？</summary>
+                <div class="answer">页面采用响应式设计，在手机与平板设备上可正常显示卡片布局，文字与交互元素大小适配触控操作。</div>
+            </details>
+            <p style="margin-top: 18px; font-size: 0.9rem; color: #3a4a62;">若想直接体验，可访问 <a href="https://portal-bbsports.com">bb体育</a> 页面查看更多细节。</p>
+        </div>
+
+        <!-- 结尾提示 -->
+        <div class="footer-note">
+            <p>本页面为独立介绍页，内容基于公开信息与一般性描述，不构成任何形式的推荐或担保。</p>
+            <p style="margin-top: 6px;">信息卡片式 · 深色头图 · 2025</p>
+        </div>
+    </div>
+</body>
+</html>
